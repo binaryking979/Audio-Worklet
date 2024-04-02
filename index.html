@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to record audio using Web Audio API in JavaScript</title>
+    <style>
+      .btn_width{
+        width:150px
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="this_title">Recording Off</h1>
+    <div>
+      <button type="button" id="buttonGetPermission" class="btn_width" onclick="main()">Get Microphone</button>
+      <br><br>
+      <button type="button" id="buttonStart" class="btn_width">Start Recording</button>
+      <br><br>
+      <button type="button" id="buttonStop" class="btn_width" disabled>Stop Recording</button>
+      <br><br>
+      <button type="button" id="buttonPause" class="btn_width">Pause Recording</button>
+      <br><br>
+      <button type="button" id="buttonResume" class="btn_width" disabled>Resume Recording</button>
+      <br><br>
+    </div>
+    <div>
+      <audio controls id="audio"></audio>
+    </div>
+    <br><br>
+    <p style="max-width:900px">I only use 4 basic functions: startRecording, stopRecording, 
+      pauseRecording and resumeRecording. stopRecording stops recording but also starts playback, 
+      if required, when the file is ready. The system creates 2 blobs: 1 in wav format and 1 
+      in mp3 format. I normally use the wav for playback and save the mp3 as a file on the server, 
+      if this is required. If you could make something similar using audioWorklet that would be great. 
+      The most helpful stuff I found was here:</p> 
+      <a href="https://dev.to/louisgv/quick-guide-to-audioworklet-30df">Article on DEVto</a>
+      <br>
+      <p>and here:<p>
+      <a href="https://gist.github.com/flpvsk/047140b31c968001dc563998f7440cc1">GitHub</a>
+      <p>I managed to connect the microphone to an audioContext and connect that to a
+      worklet node but that's as far as I got.</p><p style="max-width:900px">This part of my program uses 'normal 
+      javascript' but the code for most of my program is contained in xml files in iframes (see example 
+      mdc_in.xml). So when I want to use the recording system I just call top.startRecording() etc.</p>
+  </body>
+  <script src="encode-audio.js"></script>
+  <script src="main.js"></script>
+  </html>
